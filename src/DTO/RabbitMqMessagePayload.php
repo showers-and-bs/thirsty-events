@@ -10,17 +10,17 @@ class RabbitMqMessagePayload {
         public readonly string $payload
     ) {}
 
-    public static function create(string $created_at, string $event_id, string $event, string $payload): ThirstyxMessage
+    public static function create(string $created_at, string $event_id, string $event, string $payload): RabbitMqMessagePayload
     {
         return new self($created_at, $event_id, $event, $payload);
     }
 
-    public static function createFromArray(array $array): ThirstyxMessage
+    public static function createFromArray(array $array): RabbitMqMessagePayload
     {
         return new self($array['created_at'], $array['event_id'], $array['event'], $array['payload']);
     }
 
-    public function serialize()
+    public function serialize(): string
     {
         return serialize($this);
     }
