@@ -1,0 +1,18 @@
+{
+    "name": "showers-and-bs/thirsty-events",
+    "description": "Events for messaging between backend services",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "ShowersAndBs\\ThirstyEvents\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Predrag Rakonjac",
+            "email": "predrag.rakonjac@quantox.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
