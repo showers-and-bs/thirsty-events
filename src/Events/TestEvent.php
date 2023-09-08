@@ -1,6 +1,6 @@
 <?php
 
-namespace ShowersAndBs\ThirstyEvents\ToPublish;
+namespace ShowersAndBs\ThirstyEvents\Events;
 
 use ShowersAndBs\TransactionalOutbox\Contracts\ShouldBePublished;
 
