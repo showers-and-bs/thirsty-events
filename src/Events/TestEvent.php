@@ -14,6 +14,6 @@ class TestEvent implements ShouldBePublished
      */
     public function __construct(public string $message)
     {
-        $this->message = $message
+        $this->message = $message;
     }
 }
