@@ -8,9 +8,24 @@ class UserLogin implements ShouldBePublished
 {
 
     /**
+     * @var int
+     */
+    public readonly int $userId;
+
+    /**
      * @var string
      */
     public readonly string $username;
+
+    /**
+     * @var array
+     */
+    public readonly array $allChannels;
+
+    /**
+     * @var array
+     */
+    public readonly array $recentlyViewed;
 
     /**
      * Create a new event instance.

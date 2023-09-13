@@ -17,20 +17,8 @@ class UserLogout implements ShouldBePublished
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(string $username)
     {
-        //
-    }
-
-    public static function createFromArray(array $userInfo)
-    {
-        $instance = new self;
-
-        $instance->userId         = $userInfo['userId'];
-        $instance->username       = $userInfo['username'];
-        $instance->allChannels    = $userInfo['allChannels'];
-        $instance->recentlyViewed = $userInfo['recentlyViewed'];
-
-        return $instance;
+        $this->username = $username;
     }
 }
