@@ -2,7 +2,7 @@
 
 namespace ShowersAndBs\ThirstyEvents\Events;
 
-use ShowersAndBs\TransactionalOutbox\Contracts\ShouldBePublished;
+use ShowersAndBs\ThirstyEvents\Contracts\ShouldBePublished;
 
 class TestEvent implements ShouldBePublished
 {
