@@ -23,9 +23,9 @@ class UserLogin implements ShouldBePublished
     public readonly array $allChannels;
 
     /**
-     * @var array
+     * @var bool
      */
-    public readonly array $recentlyViewed;
+    public readonly bool $canDownload;
 
     /**
      * Create a new event instance.
@@ -41,10 +41,10 @@ class UserLogin implements ShouldBePublished
     {
         $instance = new self;
 
-        $instance->userId         = $userInfo['userId'];
-        $instance->username       = $userInfo['username'];
-        $instance->allChannels    = $userInfo['allChannels'];
-        $instance->recentlyViewed = $userInfo['recentlyViewed'];
+        $instance->userId      = $userInfo['userId'];
+        $instance->username    = $userInfo['username'];
+        $instance->allChannels = $userInfo['allChannels'];
+        $instance->canDownload = $userInfo['canDownload'];
 
         return $instance;
     }
