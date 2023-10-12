@@ -13,12 +13,18 @@ class UserLogout implements ShouldBePublished
     public readonly string $username;
 
     /**
+     * @var string
+     */
+    public readonly string $jwtTokenToInvalidate;
+
+    /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(string $username)
+    public function __construct(string $username, string $jwtTokenToInvalidate)
     {
         $this->username = $username;
+        $this->jwtTokenToInvalidate = $jwtTokenToInvalidate;
     }
 }
