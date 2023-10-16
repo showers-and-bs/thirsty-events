@@ -87,6 +87,11 @@ class JoinOptionModified implements ShouldBePublished
         //
     }
 
+    /**
+     * Create an event instance from array.
+     *
+     * @return self
+     */
     public static function createFromArray(array $joinOption, array $products)
     {
         $instance = new self;
@@ -107,5 +112,32 @@ class JoinOptionModified implements ShouldBePublished
         $instance->products            = $products;
 
         return $instance;
+    }
+
+    /**
+     * Gets a string representation of the object
+     *
+     * @return string
+     */
+    public function __toString(): string
+    {
+        $output = [
+            $this->joinOptionId,
+            'name: ' . $this->name,
+            'description: ' . $this->description,
+            'status: ' . $this->status,
+            'activeDate: ' . $this->activeDate,
+            'inactiveDate: ' . $this->inactiveDate,
+            'currency: ' . $this->currency,
+            'initialPrice: ' . $this->initialPrice,
+            'initialPeriod: ' . $this->initialPeriod,
+            'initialPeriodUnit: ' . $this->initialPeriodUnit,
+            'recurringPrice: ' . $this->recurringPrice,
+            'recurringPeriod: ' . $this->recurringPeriod,
+            'recurringPeriodUnit: ' . $this->recurringPeriodUnit,
+            'products: ' . implode(', ', $this->products),
+        ];
+
+        return implode("\n", $output);
     }
 }

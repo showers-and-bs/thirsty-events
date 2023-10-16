@@ -57,6 +57,11 @@ class ProductCreated implements ShouldBePublished
         //
     }
 
+    /**
+     * Create an event instance from array.
+     *
+     * @return self
+     */
     public static function createFromArray(array $product, array $joinOptions)
     {
         $instance = new self;
@@ -71,5 +76,26 @@ class ProductCreated implements ShouldBePublished
         $instance->joinOptions = $joinOptions;
 
         return $instance;
+    }
+
+    /**
+     * Gets a string representation of the object
+     *
+     * @return string
+     */
+    public function __toString(): string
+    {
+        $output = [
+            $this->productId,
+            'name: ' . $this->name,
+            'status: ' . $this->status,
+            'natsSiteId: ' . $this->natsSiteId,
+            'channels: ' . implode(', ', $this->channels),
+            'collections: ' . implode(', ', $this->collections),
+            'sets: ' . implode(', ', $this->sets),
+            'joinOptions: ' . implode(', ', $this->joinOptions),
+        ];
+
+        return implode("\n", $output);
     }
 }

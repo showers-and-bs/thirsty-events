@@ -27,4 +27,19 @@ class UserLogout implements ShouldBePublished
         $this->username = $username;
         $this->jwtTokenToInvalidate = $jwtTokenToInvalidate;
     }
+
+    /**
+     * Gets a string representation of the object
+     *
+     * @return string
+     */
+    public function __toString(): string
+    {
+        $output = [
+            $this->username,
+            implode("\n", str_split($this->jwtTokenToInvalidate, 70))
+        ];
+
+        return implode("\n", $output);
+    }
 }

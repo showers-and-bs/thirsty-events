@@ -37,6 +37,11 @@ class UserRegistered implements ShouldBePublished
         //
     }
 
+    /**
+     * Create an event instance from array.
+     *
+     * @return self
+     */
     public static function createFromArray(array $userInfo)
     {
         $instance = new self;
@@ -47,5 +52,22 @@ class UserRegistered implements ShouldBePublished
         $instance->canDownload = $userInfo['canDownload'];
 
         return $instance;
+    }
+
+    /**
+     * Gets a string representation of the object
+     *
+     * @return string
+     */
+    public function __toString(): string
+    {
+        $output = [
+            $this->userId,
+            $this->username,
+            implode(', ', $this->allChannels),
+            $this->canDownload,
+        ];
+
+        return implode("\n", $output);
     }
 }
