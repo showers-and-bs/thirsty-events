@@ -32,6 +32,11 @@ class AdminModified implements ShouldBePublished
         //
     }
 
+    /**
+     * Create an event instance from array.
+     *
+     * @return self
+     */
     public static function createFromArray(array $adminInfo)
     {
         $instance = new self;
@@ -41,5 +46,21 @@ class AdminModified implements ShouldBePublished
         $instance->permissions = $adminInfo['permissions'];
 
         return $instance;
+    }
+
+    /**
+     * Gets a string representation of the object
+     *
+     * @return string
+     */
+    public function __toString(): string
+    {
+        $output = [
+            $this->adminId,
+            implode(', ', $this->roles),
+            implode(', ', $this->permissions),
+        ];
+
+        return implode("\n", $output);
     }
 }
