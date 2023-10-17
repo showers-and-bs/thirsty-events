@@ -4,5 +4,5 @@ namespace ShowersAndBs\ThirstyEvents\Contracts;
 
 interface ShouldBePublished
 {
-    public function __toString(): string
+    public function __toString(): string;
 }
