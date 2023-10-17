@@ -135,7 +135,7 @@ class JoinOptionCreated implements ShouldBePublished
             'recurringPrice: ' . $this->recurringPrice,
             'recurringPeriod: ' . $this->recurringPeriod,
             'recurringPeriodUnit: ' . $this->recurringPeriodUnit,
-            'products: ' . implode(', ', $this->products),
+            'products: ' . implode(', ', array_keys($this->products)),
         ];
 
         return implode("\n", $output);

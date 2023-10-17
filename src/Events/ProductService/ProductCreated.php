@@ -93,7 +93,7 @@ class ProductCreated implements ShouldBePublished
             'channels: ' . implode(', ', $this->channels),
             'collections: ' . implode(', ', $this->collections),
             'sets: ' . implode(', ', $this->sets),
-            'joinOptions: ' . implode(', ', $this->joinOptions),
+            'joinOptions: ' . implode(', ', array_keys($this->joinOptions)),
         ];
 
         return implode("\n", $output);
