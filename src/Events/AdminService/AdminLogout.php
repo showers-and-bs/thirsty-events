@@ -4,7 +4,7 @@ namespace ShowersAndBs\ThirstyEvents\Events\AdminService;
 
 use ShowersAndBs\ThirstyEvents\Contracts\ShouldBePublished;
 
-class AdminDeleted implements ShouldBePublished
+class AdminLogout implements ShouldBePublished
 {
 
     /**
@@ -13,13 +13,19 @@ class AdminDeleted implements ShouldBePublished
     public readonly int $adminId;
 
     /**
+     * @var string
+     */
+    public readonly string $jwtTokenToInvalidate;
+
+    /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(int $adminId)
+    public function __construct(int $adminId, string $jwtTokenToInvalidate)
     {
         $this->adminId = $adminId;
+        $this->jwtTokenToInvalidate = $jwtTokenToInvalidate;
     }
 
     /**
@@ -29,6 +35,12 @@ class AdminDeleted implements ShouldBePublished
      */
     public function __toString(): string
     {
-        return 'adminId: ' . $this->adminId;
+        $output = [
+            $this->adminId,
+            implode("\n", str_split($this->jwtTokenToInvalidate, 70))
+        ];
+
+        return implode("\n", $output);
     }
+
 }
