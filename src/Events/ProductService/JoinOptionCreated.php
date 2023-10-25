@@ -15,10 +15,15 @@ class JoinOptionCreated implements ShouldBePublished
     /**
      * @var string
      */
-    public readonly string $name;
+    public readonly string $joinOptionUlid;
 
     /**
      * @var string
+     */
+    public readonly string $name;
+
+    /**
+     * @var string|null
      */
     public readonly string|null $description;
 
@@ -28,12 +33,12 @@ class JoinOptionCreated implements ShouldBePublished
     public readonly string $status;
 
     /**
-     * @var string
+     * @var string|null
      */
     public readonly string|null $activeDate;
 
     /**
-     * @var string
+     * @var string|null
      */
     public readonly string|null $inactiveDate;
 
@@ -43,7 +48,7 @@ class JoinOptionCreated implements ShouldBePublished
     public readonly string $currency;
 
     /**
-     * @var decimal
+     * @var float
      */
     public readonly float $initialPrice;
 
@@ -53,22 +58,22 @@ class JoinOptionCreated implements ShouldBePublished
     public readonly int|null $initialPeriod;
 
     /**
-     * @var string [DAY, MONTH, YEAR]
+     * @var string|null [DAY, MONTH, YEAR]
      */
     public readonly string|null $initialPeriodUnit;
 
     /**
-     * @var decimal
+     * @var float|null
      */
     public readonly float|null $recurringPrice;
 
     /**
-     * @var int
+     * @var int|null
      */
     public readonly int|null $recurringPeriod;
 
     /**
-     * @var string [DAY, MONTH, YEAR]
+     * @var string|null [DAY, MONTH, YEAR]
      */
     public readonly string|null $recurringPeriodUnit;
 
@@ -97,6 +102,7 @@ class JoinOptionCreated implements ShouldBePublished
         $instance = new self;
 
         $instance->joinOptionId        = $joinOption['id'];
+        $instance->joinOptionUlid      = $joinOption['ulid'];
         $instance->name                = $joinOption['name'];
         $instance->description         = $joinOption['description'];
         $instance->status              = $joinOption['status'];
@@ -123,6 +129,7 @@ class JoinOptionCreated implements ShouldBePublished
     {
         $output = [
             $this->joinOptionId,
+            'ulid: ' . $this->joinOptionUlid,
             'name: ' . $this->name,
             'description: ' . $this->description,
             'status: ' . $this->status,
