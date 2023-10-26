@@ -8,14 +8,9 @@ class ProductCreated implements ShouldBePublished
 {
 
     /**
-     * @var int
-     */
-    public readonly int $productId;
-
-    /**
      * @var string
      */
-    public readonly string $productUlid;
+    public readonly string $productId;
 
     /**
      * @var string
@@ -72,7 +67,6 @@ class ProductCreated implements ShouldBePublished
         $instance = new self;
 
         $instance->productId   = $product['id'];
-        $instance->productUlid = $product['ulid'];
         $instance->name        = $product['name'];
         $instance->status      = $product['status'];
         $instance->natsSiteId  = $product['nats_site_id'];
@@ -93,7 +87,6 @@ class ProductCreated implements ShouldBePublished
     {
         $output = [
             $this->productId,
-            'ulid: ' . $this->productUlid,
             'name: ' . $this->name,
             'status: ' . $this->status,
             'natsSiteId: ' . $this->natsSiteId,

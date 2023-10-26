@@ -8,9 +8,9 @@ class JoinOptionModified implements ShouldBePublished
 {
 
     /**
-     * @var int
+     * @var string
      */
-    public readonly int $joinOptionId;
+    public readonly string $joinOptionId;
 
     /**
      * @var string
@@ -43,22 +43,22 @@ class JoinOptionModified implements ShouldBePublished
     public readonly string $currency;
 
     /**
-     * @var decimal
+     * @var float
      */
     public readonly float $initialPrice;
 
     /**
-     * @var int
+     * @var int|null
      */
     public readonly int|null $initialPeriod;
 
     /**
-     * @var string [DAY, MONTH, YEAR]
+     * @var string|null [DAY, MONTH, YEAR]
      */
     public readonly string|null $initialPeriodUnit;
 
     /**
-     * @var decimal
+     * @var float|null
      */
     public readonly float|null $recurringPrice;
 
