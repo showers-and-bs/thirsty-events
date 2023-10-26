@@ -8,14 +8,9 @@ class JoinOptionCreated implements ShouldBePublished
 {
 
     /**
-     * @var int
-     */
-    public readonly int $joinOptionId;
-
-    /**
      * @var string
      */
-    public readonly string $joinOptionUlid;
+    public readonly string $joinOptionId;
 
     /**
      * @var string
@@ -102,7 +97,6 @@ class JoinOptionCreated implements ShouldBePublished
         $instance = new self;
 
         $instance->joinOptionId        = $joinOption['id'];
-        $instance->joinOptionUlid      = $joinOption['ulid'];
         $instance->name                = $joinOption['name'];
         $instance->description         = $joinOption['description'];
         $instance->status              = $joinOption['status'];
@@ -129,7 +123,6 @@ class JoinOptionCreated implements ShouldBePublished
     {
         $output = [
             $this->joinOptionId,
-            'ulid: ' . $this->joinOptionUlid,
             'name: ' . $this->name,
             'description: ' . $this->description,
             'status: ' . $this->status,

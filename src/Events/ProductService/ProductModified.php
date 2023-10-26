@@ -8,9 +8,9 @@ class ProductModified implements ShouldBePublished
 {
 
     /**
-     * @var int
+     * @var string
      */
-    public readonly int $productId;
+    public readonly string $productId;
 
     /**
      * @var string
