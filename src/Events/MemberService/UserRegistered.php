@@ -28,6 +28,16 @@ class UserRegistered implements ShouldBePublished
     public readonly bool $canDownload;
 
     /**
+     * @var string|null
+     */
+    public readonly string|null $biller;
+
+    /**
+     * @var string|null
+     */
+    public readonly string|null $billerMemberid;
+
+    /**
      * Create a new event instance.
      *
      * @return void
@@ -46,10 +56,12 @@ class UserRegistered implements ShouldBePublished
     {
         $instance = new self;
 
-        $instance->userId      = $userInfo['userId'];
-        $instance->username    = $userInfo['username'];
-        $instance->allChannels = $userInfo['allChannels'];
-        $instance->canDownload = $userInfo['canDownload'];
+        $instance->userId         = $userInfo['userId'];
+        $instance->username       = $userInfo['username'];
+        $instance->allChannels    = $userInfo['allChannels'];
+        $instance->canDownload    = $userInfo['canDownload'];
+        $instance->biller         = $userInfo['biller'];
+        $instance->billerMemberid = $userInfo['billerMemberid'];
 
         return $instance;
     }
@@ -65,7 +77,9 @@ class UserRegistered implements ShouldBePublished
             $this->userId,
             $this->username,
             implode(', ', $this->allChannels),
-            $this->canDownload,
+            'canDownload: ' . $this->canDownload,
+            'biller: ' . $this->biller,
+            'billerMemberid: ' . $this->billerMemberid,
         ];
 
         return implode("\n", $output);
