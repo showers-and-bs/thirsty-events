@@ -18,6 +18,11 @@ class ProductModified implements ShouldBePublished
     public readonly string $name;
 
     /**
+     * @var string|null
+     */
+    public readonly string|null $description;
+
+    /**
      * @var string
      */
     public readonly string $status;
@@ -68,6 +73,7 @@ class ProductModified implements ShouldBePublished
 
         $instance->productId   = $product['id'];
         $instance->name        = $product['name'];
+        $instance->description = $product['description'];
         $instance->status      = $product['status'];
         $instance->natsSiteId  = $product['nats_site_id'];
         $instance->channels    = $product['channels'];
