@@ -22,9 +22,9 @@ class InitialPaymentSuccess implements ShouldBePublished
     public readonly string $joinOptionName;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public readonly string $joinOptionDescription;
+    public readonly string | null $joinOptionDescription;
 
     /**
      * @var string
@@ -41,14 +41,14 @@ class InitialPaymentSuccess implements ShouldBePublished
      */
     public readonly int $initialPeriod;
     /**
-     * @var string
+     * @var string | null
      */
-    public readonly string $recurringPrice;
+    public readonly string | null $recurringPrice;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public readonly string $recurringPeriod;
+    public readonly string | null $recurringPeriod;
 
     /**
      * @var string
@@ -65,9 +65,9 @@ class InitialPaymentSuccess implements ShouldBePublished
     public readonly string $joinedAt;
 
     /**
-     * @var string
+     * @var string | null
      */
-    public readonly string $nextRebill;
+    public readonly string | null $nextRebill;
 
     /**
      * @var string
@@ -93,16 +93,16 @@ class InitialPaymentSuccess implements ShouldBePublished
      * @param int $userId
      * @param string $productId
      * @param string $joinOptionName
-     * @param string $joinOptionDescription
+     * @param string|null $joinOptionDescription
      * @param string $currency
      * @param string $initialPrice
      * @param int $initialPeriod
-     * @param string $recurringPrice
-     * @param string $recurringPeriod
+     * @param string|null $recurringPrice
+     * @param string|null $recurringPeriod
      * @param string $biller
      * @param int $billerMemberId
      * @param string $joinedAt
-     * @param string $nextRebill
+     * @param string|null $nextRebill
      * @param string $expiresAt
      * @param int $isTrial
      * @param float $spent
@@ -110,22 +110,22 @@ class InitialPaymentSuccess implements ShouldBePublished
      */
     public function __construct(
         int $userId,
-        string $productId,
-        string $joinOptionName,
-        string $joinOptionDescription,
-        string $currency,
-        string $initialPrice,
-        int    $initialPeriod,
-        string $recurringPrice,
-        string $recurringPeriod,
-        string $biller,
-        int    $billerMemberId,
-        string $joinedAt,
-        string $nextRebill,
-        string $expiresAt,
-        int    $isTrial,
-        float $spent,
-        string $status
+        string  $productId,
+        string  $joinOptionName,
+        ?string $joinOptionDescription,
+        string  $currency,
+        string  $initialPrice,
+        int     $initialPeriod,
+        ?string $recurringPrice,
+        ?string $recurringPeriod,
+        string  $biller,
+        int     $billerMemberId,
+        string  $joinedAt,
+        ?string $nextRebill,
+        string  $expiresAt,
+        int     $isTrial,
+        float   $spent,
+        string  $status
     ) {
         $this->userId = $userId;
         $this->productId = $productId;
