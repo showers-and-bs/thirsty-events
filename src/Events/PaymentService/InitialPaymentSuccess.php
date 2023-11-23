@@ -19,6 +19,11 @@ class InitialPaymentSuccess implements ShouldBePublished
     /**
      * @var string
      */
+    public readonly string $joinOptionId;
+
+    /**
+     * @var string
+     */
     public readonly string $joinOptionName;
 
     /**
@@ -92,6 +97,7 @@ class InitialPaymentSuccess implements ShouldBePublished
     /**
      * @param int $userId
      * @param string $productId
+     * @param string $joinOptionId
      * @param string $joinOptionName
      * @param string|null $joinOptionDescription
      * @param string $currency
@@ -111,6 +117,7 @@ class InitialPaymentSuccess implements ShouldBePublished
     public function __construct(
         int $userId,
         string  $productId,
+        string  $joinOptionId,
         string  $joinOptionName,
         ?string $joinOptionDescription,
         string  $currency,
@@ -144,6 +151,7 @@ class InitialPaymentSuccess implements ShouldBePublished
         $this->isTrial = $isTrial;
         $this->spent = $spent;
         $this->status = $status;
+        $this->joinOptionId = $joinOptionId;
     }
 
 
