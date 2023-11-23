@@ -4,7 +4,7 @@ namespace ShowersAndBs\ThirstyEvents\Events\MemberService;
 
 use ShowersAndBs\ThirstyEvents\Contracts\ShouldBePublished;
 
-class UserLogin implements ShouldBePublished
+class UpdateSubscriptions implements ShouldBePublished
 {
 
     /**
