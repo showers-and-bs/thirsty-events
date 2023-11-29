@@ -4,17 +4,12 @@ namespace ShowersAndBs\ThirstyEvents\Events\PaymentService;
 
 use ShowersAndBs\ThirstyEvents\Contracts\ShouldBePublished;
 
-class InitialPaymentSuccess implements ShouldBePublished
+class SubscriptionModified implements ShouldBePublished
 {
     /**
      * @var int
      */
-    public readonly int $userId;
-
-    /**
-     * @var string
-     */
-    public readonly string $productId;
+    public readonly int $id;
 
     /**
      * @var string
@@ -27,33 +22,15 @@ class InitialPaymentSuccess implements ShouldBePublished
     public readonly string | null $joinOptionDescription;
 
     /**
-     * @var string
+     * @var float | null
      */
-    public readonly string $currency;
+    public readonly float | null $recurringPrice;
 
     /**
-     * @var string
+     * @var int | null
      */
-    public readonly string $initialPrice;
+    public readonly int | null $recurringPeriod;
 
-    /**
-     * @var int
-     */
-    public readonly int $initialPeriod;
-    /**
-     * @var string | null
-     */
-    public readonly string | null $recurringPrice;
-
-    /**
-     * @var string|null
-     */
-    public readonly string | null $recurringPeriod;
-
-    /**
-     * @var string
-     */
-    public readonly string $biller;
     /**
      * @var int
      */
@@ -90,6 +67,8 @@ class InitialPaymentSuccess implements ShouldBePublished
     public readonly string $status;
 
     /**
+     * Create a new event instance.
+     *
      * @param int $userId
      * @param string $productId
      * @param string $joinOptionName
@@ -109,16 +88,11 @@ class InitialPaymentSuccess implements ShouldBePublished
      * @param string $status
      */
     public function __construct(
-        int $userId,
-        string  $productId,
+        int     $id,
         string  $joinOptionName,
         ?string $joinOptionDescription,
-        string  $currency,
-        string  $initialPrice,
-        int     $initialPeriod,
-        ?string $recurringPrice,
-        ?string $recurringPeriod,
-        string  $biller,
+        ?float  $recurringPrice,
+        ?int    $recurringPeriod,
         int     $billerMemberId,
         string  $joinedAt,
         ?string $nextRebill,
@@ -127,16 +101,11 @@ class InitialPaymentSuccess implements ShouldBePublished
         float   $spent,
         string  $status
     ) {
-        $this->userId = $userId;
-        $this->productId = $productId;
+        $this->id = $id;
         $this->joinOptionName = $joinOptionName;
         $this->joinOptionDescription = $joinOptionDescription;
-        $this->currency = $currency;
-        $this->initialPrice = $initialPrice;
-        $this->initialPeriod = $initialPeriod;
         $this->recurringPrice = $recurringPrice;
         $this->recurringPeriod = $recurringPeriod;
-        $this->biller = $biller;
         $this->billerMemberId = $billerMemberId;
         $this->joinedAt = $joinedAt;
         $this->nextRebill = $nextRebill;
@@ -146,7 +115,11 @@ class InitialPaymentSuccess implements ShouldBePublished
         $this->status = $status;
     }
 
-
+    /**
+     * Gets a string representation of the object
+     *
+     * @return string
+     */
     public function __toString(): string
     {
         return implode("\n", (array)$this);
