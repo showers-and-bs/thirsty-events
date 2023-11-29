@@ -1,4 +1,4 @@
-# thirsty-events
+# ThirstyX Events
 
 Events for messaging between backend services
 
