@@ -61,9 +61,9 @@ class SubscriptionCreated implements ShouldBePublished
     public readonly string $biller;
 
     /**
-     * @var int
+     * @var string
      */
-    public readonly int $billerMemberId;
+    public readonly string $billerMemberId;
 
     /**
      * @var string
@@ -108,7 +108,7 @@ class SubscriptionCreated implements ShouldBePublished
      * @param string|null $recurringPrice
      * @param string|null $recurringPeriod
      * @param string $biller
-     * @param int $billerMemberId
+     * @param string $billerMemberId
      * @param string $joinedAt
      * @param string|null $nextRebill
      * @param string $expiresAt
@@ -128,7 +128,7 @@ class SubscriptionCreated implements ShouldBePublished
         ?float  $recurringPrice,
         ?int    $recurringPeriod,
         string  $biller,
-        int     $billerMemberId,
+        string  $billerMemberId,
         string  $joinedAt,
         ?string $nextRebill,
         string  $expiresAt,
