@@ -53,6 +53,11 @@ class ProductModified implements ShouldBePublished
     public readonly array $joinOptions;
 
     /**
+     * @var int|null
+     */
+    public readonly int|null $priority;
+
+    /**
      * Create a new event instance.
      *
      * @return void
@@ -79,6 +84,7 @@ class ProductModified implements ShouldBePublished
         $instance->channels    = $product['channels'];
         $instance->collections = $product['collections'];
         $instance->sets        = $product['sets'];
+        $instance->priority    = $product['priority'];
         $instance->joinOptions = $joinOptions;
 
         return $instance;
@@ -96,6 +102,7 @@ class ProductModified implements ShouldBePublished
             'name: ' . $this->name,
             'status: ' . $this->status,
             'natsSiteId: ' . $this->natsSiteId,
+            'priority: ' . $this->priority,
             'channels: ' . implode(', ', $this->channels),
             'collections: ' . implode(', ', $this->collections),
             'sets: ' . implode(', ', $this->sets),
