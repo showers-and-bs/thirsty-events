@@ -80,7 +80,7 @@ class JoinOptionCreated implements ShouldBePublished
     /**
      * @var array Associated products id
      */
-    public readonly array $products;
+    // public readonly array $products;
 
     /**
      * Create a new event instance.
@@ -97,7 +97,7 @@ class JoinOptionCreated implements ShouldBePublished
      *
      * @return self
      */
-    public static function createFromArray(array $joinOption, array $products)
+    public static function createFromArray(array $joinOption/*, array $products*/)
     {
         $instance = new self;
 
@@ -115,7 +115,7 @@ class JoinOptionCreated implements ShouldBePublished
         $instance->recurringPeriod     = $joinOption['recurring_period'];
         $instance->recurringPeriodUnit = $joinOption['recurring_period_unit'];
         $instance->type                = $joinOption['type'];
-        $instance->products            = $products;
+        // $instance->products            = $products;
 
         return $instance;
     }
@@ -142,7 +142,7 @@ class JoinOptionCreated implements ShouldBePublished
             'recurringPeriod: ' . $this->recurringPeriod,
             'recurringPeriodUnit: ' . $this->recurringPeriodUnit,
             'type: ' . $this->type,
-            'products: ' . implode(', ', array_keys($this->products)),
+            // 'products: ' . implode(', ', array_keys($this->products)),
         ];
 
         return implode("\n", $output);

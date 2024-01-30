@@ -50,7 +50,7 @@ class ProductCreated implements ShouldBePublished
     /**
      * @var array Associated join options id
      */
-    public readonly array $joinOptions;
+    // public readonly array $joinOptions;
 
     /**
      * @var int|null
@@ -72,7 +72,7 @@ class ProductCreated implements ShouldBePublished
      *
      * @return self
      */
-    public static function createFromArray(array $product, array $joinOptions)
+    public static function createFromArray(array $product/*, array $joinOptions*/)
     {
         $instance = new self;
 
@@ -85,7 +85,7 @@ class ProductCreated implements ShouldBePublished
         $instance->collections = $product['collections'];
         $instance->sets        = $product['sets'];
         $instance->priority    = $product['priority'];
-        $instance->joinOptions = $joinOptions;
+        // $instance->joinOptions = $joinOptions;
 
         return $instance;
     }
@@ -106,7 +106,7 @@ class ProductCreated implements ShouldBePublished
             'channels: ' . implode(', ', $this->channels),
             'collections: ' . implode(', ', $this->collections),
             'sets: ' . implode(', ', $this->sets),
-            'joinOptions: ' . implode(', ', array_keys($this->joinOptions)),
+            // 'joinOptions: ' . implode(', ', array_keys($this->joinOptions)),
         ];
 
         return implode("\n", $output);
