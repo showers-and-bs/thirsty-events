@@ -73,9 +73,9 @@ class JoinOptionCreated implements ShouldBePublished
     public readonly string|null $recurringPeriodUnit;
 
     /**
-     * @var string
+     * @var array
      */
-    public readonly string $type;
+    public readonly array $type;
 
     /**
      * @var array Associated products id
