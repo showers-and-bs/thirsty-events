@@ -32,7 +32,7 @@ class JoinOptionProductCreated implements ShouldBePublished
     public function __construct(
         string  $productId,
         string  $joinOptionId,
-        string  $displayToTheUsers,
+        string|null  $displayToTheUsers,
     ) {
         $this->productId = $productId;
         $this->joinOptionId = $joinOptionId;
