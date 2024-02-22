@@ -35,6 +35,11 @@ class ProductModified implements ShouldBePublished
     /**
      * @var array
      */
+    public readonly array $tags;
+
+    /**
+     * @var array
+     */
     public readonly array $channels;
 
     /**
@@ -56,6 +61,21 @@ class ProductModified implements ShouldBePublished
      * @var int|null
      */
     public readonly int|null $priority;
+
+    /**
+     * @var array
+     */
+    public readonly array $includedTags;
+
+    /**
+     * @var array
+     */
+    public readonly array $includedChannels;
+
+    /**
+     * @var array
+     */
+    public readonly array $includedCollections;
 
     /**
      * Create a new event instance.
@@ -81,11 +101,15 @@ class ProductModified implements ShouldBePublished
         $instance->description = $product['description'];
         $instance->status      = $product['status'];
         $instance->natsSiteId  = $product['nats_site_id'];
+        $instance->tags    = $product['tags'];
         $instance->channels    = $product['channels'];
         $instance->collections = $product['collections'];
         $instance->sets        = $product['sets'];
         $instance->priority    = $product['priority'];
         // $instance->joinOptions = $joinOptions;
+        $instance->includedTags = $product['included_tags'];
+        $instance->includedChannels = $product['included_channels'];
+        $instance->includedCollections = $product['included_collections'];
 
         return $instance;
     }
@@ -103,10 +127,14 @@ class ProductModified implements ShouldBePublished
             'status: ' . $this->status,
             'natsSiteId: ' . $this->natsSiteId,
             'priority: ' . $this->priority,
+            'tags: ' . implode(', ', $this->tags),
             'channels: ' . implode(', ', $this->channels),
             'collections: ' . implode(', ', $this->collections),
             'sets: ' . implode(', ', $this->sets),
             // 'joinOptions: ' . implode(', ', array_keys($this->joinOptions)),
+            'includedTags: ' . implode(', ', $this->includedTags),
+            'includedChannels: ' . implode(', ', $this->includedChannels),
+            'includedCollections: ' . implode(', ', $this->includedCollections),
         ];
 
         return implode("\n", $output);

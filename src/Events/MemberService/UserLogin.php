@@ -33,6 +33,11 @@ class UserLogin implements ShouldBePublished
     public readonly array $sets;
 
     /**
+     * @var array
+     */
+    public readonly array $tags;
+
+    /**
      * @var bool
      */
     public readonly bool $canDownload;
@@ -61,6 +66,7 @@ class UserLogin implements ShouldBePublished
         $instance->allChannels = $userInfo['allChannels'];
         $instance->collections = $userInfo['collections'];
         $instance->sets        = $userInfo['sets'];
+        $instance->tags        = $userInfo['tags'];
         $instance->canDownload = $userInfo['canDownload'];
 
         return $instance;
@@ -79,6 +85,7 @@ class UserLogin implements ShouldBePublished
             implode(', ', $this->allChannels),
             implode(', ', $this->collections),
             implode(', ', $this->sets),
+            implode(', ', $this->tags),
             $this->canDownload,
         ];
 

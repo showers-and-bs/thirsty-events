@@ -33,6 +33,11 @@ class UserRegistered implements ShouldBePublished
     public readonly array $sets;
 
     /**
+     * @var array
+     */
+    public readonly array $tags;
+
+    /**
      * @var bool
      */
     public readonly bool $canDownload;
@@ -71,6 +76,7 @@ class UserRegistered implements ShouldBePublished
         $instance->allChannels    = $userInfo['allChannels'];
         $instance->collections    = $userInfo['collections'];
         $instance->sets           = $userInfo['sets'];
+        $instance->tags           = $userInfo['tags'];
         $instance->canDownload    = $userInfo['canDownload'];
         $instance->biller         = $userInfo['biller'];
         $instance->billerMemberid = $userInfo['billerMemberid'];
@@ -91,6 +97,7 @@ class UserRegistered implements ShouldBePublished
             implode(', ', $this->allChannels),
             implode(', ', $this->collections),
             implode(', ', $this->sets),
+            implode(', ', $this->tags),
             'canDownload: ' . $this->canDownload,
             'biller: ' . $this->biller,
             'billerMemberid: ' . $this->billerMemberid,
