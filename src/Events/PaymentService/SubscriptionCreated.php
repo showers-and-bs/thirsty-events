@@ -96,17 +96,23 @@ class SubscriptionCreated implements ShouldBePublished
     public readonly string $status;
 
     /**
+     * @var string
+     */
+    public readonly string $type;
+
+    /**
      * Create a new event instance.
      *
+     * @param int $id
      * @param int $userId
      * @param string $productId
      * @param string $joinOptionName
      * @param string|null $joinOptionDescription
      * @param string $currency
-     * @param string $initialPrice
+     * @param float $initialPrice
      * @param int $initialPeriod
-     * @param string|null $recurringPrice
-     * @param string|null $recurringPeriod
+     * @param float|null $recurringPrice
+     * @param int|null $recurringPeriod
      * @param string $biller
      * @param string $billerMemberId
      * @param string $joinedAt
@@ -115,6 +121,7 @@ class SubscriptionCreated implements ShouldBePublished
      * @param int $isTrial
      * @param float $spent
      * @param string $status
+     * @param string $type
      */
     public function __construct(
         int     $id,
@@ -134,7 +141,8 @@ class SubscriptionCreated implements ShouldBePublished
         string  $expiresAt,
         int     $isTrial,
         float   $spent,
-        string  $status
+        string  $status,
+        string  $type,
     ) {
         $this->id = $id;
         $this->userId = $userId;
@@ -154,6 +162,7 @@ class SubscriptionCreated implements ShouldBePublished
         $this->isTrial = $isTrial;
         $this->spent = $spent;
         $this->status = $status;
+        $this->type = $type;
     }
 
     /**
