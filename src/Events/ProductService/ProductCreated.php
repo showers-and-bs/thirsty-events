@@ -89,6 +89,16 @@ class ProductCreated implements ShouldBePublished
     public readonly bool $isDownloadable;
 
     /**
+     * @var string|null
+     */
+    public readonly string|null $logoUrl;
+
+    /**
+     * @var string|null
+     */
+    public readonly string|null $thumbnailUrl;
+
+    /**
      * Create a new event instance.
      *
      * @return void
@@ -103,7 +113,7 @@ class ProductCreated implements ShouldBePublished
      *
      * @return self
      */
-    public static function createFromArray(array $product/*, array $joinOptions*/)
+    public static function createFromArray(array $product, string $logoUrl = null, string $thumbnailUrl = null)
     {
         $instance = new self;
 
@@ -117,12 +127,13 @@ class ProductCreated implements ShouldBePublished
         $instance->collections = $product['collections'];
         $instance->sets        = $product['sets'];
         $instance->priority    = $product['priority'];
-        // $instance->joinOptions = $joinOptions;
         $instance->includedTags = $product['included_tags'];
         $instance->includedChannels = $product['included_channels'];
         $instance->includedCollections = $product['included_collections'];
         $instance->guestsHidden = $product['guests_hidden'];
         $instance->isDownloadable = $product['is_downloadable'];
+        $instance->logoUrl = $logoUrl;
+        $instance->thumbnailUrl = $thumbnailUrl;
 
         return $instance;
     }
@@ -137,6 +148,7 @@ class ProductCreated implements ShouldBePublished
         $output = [
             $this->productId,
             'name: ' . $this->name,
+            'description: ' . $this->description,
             'status: ' . $this->status,
             'natsSiteId: ' . $this->natsSiteId,
             'priority: ' . $this->priority,
@@ -150,6 +162,8 @@ class ProductCreated implements ShouldBePublished
             'includedCollections: ' . implode(', ', $this->includedCollections),
             'guestsHidden: ' . $this->guestsHidden,
             'isDownloadable: ' . $this->isDownloadable,
+            'logoUrl: ' . $this->logoUrl,
+            'thumbnailUrl: ' . $this->thumbnailUrl,
         ];
 
         return implode("\n", $output);
