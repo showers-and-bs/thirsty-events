@@ -78,6 +78,17 @@ class ProductModified implements ShouldBePublished
     public readonly array $includedCollections;
 
     /**
+     * @var bool
+     */
+    public readonly bool $guestsHidden;
+
+    /**
+     * @var bool
+     */
+    public readonly bool $isDownloadable;
+
+
+    /**
      * Create a new event instance.
      *
      * @return void
@@ -110,6 +121,8 @@ class ProductModified implements ShouldBePublished
         $instance->includedTags = $product['included_tags'];
         $instance->includedChannels = $product['included_channels'];
         $instance->includedCollections = $product['included_collections'];
+        $instance->guestsHidden = $product['guests_hidden'];
+        $instance->isDownloadable = $product['is_downloadable'];
 
         return $instance;
     }
@@ -135,6 +148,8 @@ class ProductModified implements ShouldBePublished
             'includedTags: ' . implode(', ', $this->includedTags),
             'includedChannels: ' . implode(', ', $this->includedChannels),
             'includedCollections: ' . implode(', ', $this->includedCollections),
+            'guestsHidden: ' . $this->guestsHidden,
+            'isDownloadable: ' . $this->isDownloadable,
         ];
 
         return implode("\n", $output);
