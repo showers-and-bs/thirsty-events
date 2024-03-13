@@ -23,9 +23,9 @@ class JoinOptionProductCreated implements ShouldBePublished
     public readonly string|null $displayToTheUsers;
 
     /**
-     * @var array
+     * @var string
      */
-    public readonly array $pricingLevel;
+    public readonly string $pricingLevel;
 
     /**
      * Create a new event instance.
@@ -33,13 +33,13 @@ class JoinOptionProductCreated implements ShouldBePublished
      * @param string $productId
      * @param string $joinOptionId
      * @param string|null $displayToTheUsers
-     * @param array $pricingLevel
+     * @param string $pricingLevel
      */
     public function __construct(
         string  $productId,
         string  $joinOptionId,
         string|null  $displayToTheUsers,
-        array $pricingLevel
+        string $pricingLevel
     ) {
         $this->productId = $productId;
         $this->joinOptionId = $joinOptionId;
