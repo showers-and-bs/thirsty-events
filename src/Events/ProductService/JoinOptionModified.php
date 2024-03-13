@@ -20,7 +20,7 @@ class JoinOptionModified implements ShouldBePublished
     /**
      * @var string
      */
-    public readonly string|null $description;
+    public readonly string|null $note;
 
     /**
      * @var string
@@ -73,9 +73,9 @@ class JoinOptionModified implements ShouldBePublished
     public readonly string|null $recurringPeriodUnit;
 
     /**
-     * @var array
+     * @var string
      */
-    public readonly array $type;
+    public readonly string $type;
 
     /**
      * @var array Associated products id
@@ -103,7 +103,7 @@ class JoinOptionModified implements ShouldBePublished
 
         $instance->joinOptionId        = $joinOption['id'];
         $instance->name                = $joinOption['name'];
-        $instance->description         = $joinOption['description'];
+        $instance->note                = $joinOption['note'];
         $instance->status              = $joinOption['status'];
         $instance->activeDate          = $joinOption['active_date'];
         $instance->inactiveDate        = $joinOption['inactive_date'];
@@ -130,7 +130,7 @@ class JoinOptionModified implements ShouldBePublished
         $output = [
             $this->joinOptionId,
             'name: ' . $this->name,
-            'description: ' . $this->description,
+            'note: ' . $this->note,
             'status: ' . $this->status,
             'activeDate: ' . $this->activeDate,
             'inactiveDate: ' . $this->inactiveDate,
