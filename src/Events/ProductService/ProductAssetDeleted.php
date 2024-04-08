@@ -15,17 +15,17 @@ class ProductAssetDeleted implements ShouldBePublished
     /**
      * @var int
      */
-    public readonly int $assetId;
+    public readonly string $assetType;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(int $productId, int $assetId)
+    public function __construct(int $productId, string $assetType)
     {
         $this->productId = $productId;
-        $this->assetId = $assetId;
+        $this->assetType = $assetType;
     }
 
     /**
@@ -37,7 +37,7 @@ class ProductAssetDeleted implements ShouldBePublished
     {
         $output = [
             'productId: ' . $this->productId,
-            'assetId: ' . $this->assetId,
+            'assetType: ' . $this->$assetType,
         ];
 
         return implode("\n", $output);
