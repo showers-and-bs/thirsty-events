@@ -37,7 +37,7 @@ class ProductAssetDeleted implements ShouldBePublished
     {
         $output = [
             'productId: ' . $this->productId,
-            'assetType: ' . $this->$assetType,
+            'assetType: ' . $this->assetType,
         ];
 
         return implode("\n", $output);
