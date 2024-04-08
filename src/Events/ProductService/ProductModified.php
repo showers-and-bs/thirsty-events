@@ -88,17 +88,6 @@ class ProductModified implements ShouldBePublished
     public readonly bool $isDownloadable;
 
     /**
-     * @var string|null
-     */
-    public readonly string|null $logoUrl;
-
-    /**
-     * @var string|null
-     */
-    public readonly string|null $thumbnailUrl;
-
-
-    /**
      * Create a new event instance.
      *
      * @return void
@@ -113,7 +102,7 @@ class ProductModified implements ShouldBePublished
      *
      * @return self
      */
-    public static function createFromArray(array $product, string $logoUrl = null, string $thumbnailUrl = null)
+    public static function createFromArray(array $product)
     {
         $instance = new self;
 
@@ -132,8 +121,6 @@ class ProductModified implements ShouldBePublished
         $instance->includedCollections = $product['included_collections'];
         $instance->guestsHidden = $product['guests_hidden'];
         $instance->isDownloadable = $product['is_downloadable'];
-        $instance->logoUrl = $logoUrl;
-        $instance->thumbnailUrl = $thumbnailUrl;
 
         return $instance;
     }
@@ -162,8 +149,6 @@ class ProductModified implements ShouldBePublished
             'includedCollections: ' . implode(', ', $this->includedCollections),
             'guestsHidden: ' . $this->guestsHidden,
             'isDownloadable: ' . $this->isDownloadable,
-            'logoUrl: ' . $this->logoUrl,
-            'thumbnailUrl: ' . $this->thumbnailUrl,
         ];
 
         return implode("\n", $output);
