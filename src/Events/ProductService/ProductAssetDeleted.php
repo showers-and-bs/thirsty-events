@@ -1,6 +1,6 @@
 <?php
 
-namespace ShowersAndBs\ThirstyEvents\Events\AdminService;
+namespace ShowersAndBs\ThirstyEvents\Events\ProductService;
 
 use ShowersAndBs\ThirstyEvents\Contracts\ShouldBePublished;
 
