@@ -10,7 +10,7 @@ class ProductAssetDeleted implements ShouldBePublished
     /**
      * @var int
      */
-    public readonly int $productId;
+    public readonly string $productId;
 
     /**
      * @var int
@@ -22,7 +22,7 @@ class ProductAssetDeleted implements ShouldBePublished
      *
      * @return void
      */
-    public function __construct(int $productId, string $assetType)
+    public function __construct(string $productId, string $assetType)
     {
         $this->productId = $productId;
         $this->assetType = $assetType;
