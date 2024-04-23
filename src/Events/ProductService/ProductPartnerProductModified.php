@@ -4,7 +4,7 @@ namespace ShowersAndBs\ThirstyEvents\Events\ProductService;
 
 use ShowersAndBs\ThirstyEvents\Contracts\ShouldBePublished;
 
-class PartnerProductModified implements ShouldBePublished
+class ProductPartnerProductModified implements ShouldBePublished
 {
 
     /**
