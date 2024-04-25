@@ -13,6 +13,11 @@ class AdminModified implements ShouldBePublished
     public readonly int $adminId;
 
     /**
+     * @var string
+     */
+    public readonly string $name;
+
+    /**
      * @var array
      */
     public readonly array $roles;
@@ -42,6 +47,7 @@ class AdminModified implements ShouldBePublished
         $instance = new self;
 
         $instance->adminId     = $adminInfo['adminId'];
+        $instance->name        = $adminInfo['name'];
         $instance->roles       = $adminInfo['roles'];
         $instance->permissions = $adminInfo['permissions'];
 
@@ -57,6 +63,7 @@ class AdminModified implements ShouldBePublished
     {
         $output = [
             $this->adminId,
+            $this->name,
             implode(', ', $this->roles),
             implode(', ', $this->permissions),
         ];

@@ -18,6 +18,11 @@ class AdminCreated implements ShouldBePublished
     public readonly string $email;
 
     /**
+     * @var string
+     */
+    public readonly string $name;
+
+    /**
      * @var array
      */
     public readonly array $roles;
@@ -48,6 +53,7 @@ class AdminCreated implements ShouldBePublished
 
         $instance->adminId     = $adminInfo['adminId'];
         $instance->email       = $adminInfo['email'];
+        $instance->name        = $adminInfo['name'];
         $instance->roles       = $adminInfo['roles'];
         $instance->permissions = $adminInfo['permissions'];
 
@@ -64,6 +70,7 @@ class AdminCreated implements ShouldBePublished
         $output = [
             $this->adminId,
             $this->email,
+            $this->name,
             implode(', ', $this->roles),
             implode(', ', $this->permissions),
         ];
