@@ -22,6 +22,11 @@ class ProductPartnerProductModified implements ShouldBePublished
      */
     public readonly int|null $payoutPercentage;
 
+    /**
+     * @var int|null
+     */
+    public readonly int|null $profitExpense;
+
 
     /**
      * Create a new event instance.
@@ -29,15 +34,18 @@ class ProductPartnerProductModified implements ShouldBePublished
      * @param int $partnerId
      * @param string $productId
      * @param int|null $payoutPercentage
+     * @param int|null $profitExpense
      */
     public function __construct(
         int  $partnerId,
         string  $productId,
         int|null  $payoutPercentage,
+        int|null $profitExpense
     ) {
         $this->partnerId = $partnerId;
         $this->productId = $productId;
         $this->payoutPercentage = $payoutPercentage;
+        $this->profitExpense = $profitExpense;
     }
 
     /**
