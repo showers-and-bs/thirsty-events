@@ -25,7 +25,7 @@ class PartnerProductCreated implements ShouldBePublished
     /**
      * @var int|null
      */
-    public readonly int|null $profitExpense;
+    public readonly int|null $profitExpensePercentage;
 
 
     /**
@@ -34,18 +34,18 @@ class PartnerProductCreated implements ShouldBePublished
      * @param int $partnerId
      * @param string $productId
      * @param int|null $payoutPercentage
-     * @param int|null $profitExpense
+     * @param int|null $profitExpensePercentage
      */
     public function __construct(
         int $partnerId,
         string $productId,
         int|null $payoutPercentage,
-        int|null $profitExpense
+        int|null $profitExpensePercentage
     ) {
         $this->partnerId = $partnerId;
         $this->productId = $productId;
         $this->payoutPercentage = $payoutPercentage;
-        $this->profitExpense = $profitExpense;
+        $this->profitExpensePercentage = $profitExpensePercentage;
     }
 
     /**
