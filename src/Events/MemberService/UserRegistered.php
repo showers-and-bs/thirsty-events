@@ -18,6 +18,11 @@ class UserRegistered implements ShouldBePublished
     public readonly string $username;
 
     /**
+     * @var string
+     */
+    public readonly string $membership_level;
+
+    /**
      * @var array
      */
     public readonly array $allChannels;
@@ -71,15 +76,16 @@ class UserRegistered implements ShouldBePublished
     {
         $instance = new self;
 
-        $instance->userId         = $userInfo['userId'];
-        $instance->username       = $userInfo['username'];
-        $instance->allChannels    = $userInfo['allChannels'];
-        $instance->collections    = $userInfo['collections'];
-        $instance->sets           = $userInfo['sets'];
-        $instance->tags           = $userInfo['tags'];
-        $instance->canDownload    = $userInfo['canDownload'];
-        $instance->biller         = $userInfo['biller'];
-        $instance->billerMemberid = $userInfo['billerMemberid'];
+        $instance->userId           = $userInfo['userId'];
+        $instance->username         = $userInfo['username'];
+        $instance->membership_level = $userInfo['membership_level'];
+        $instance->allChannels      = $userInfo['allChannels'];
+        $instance->collections      = $userInfo['collections'];
+        $instance->sets             = $userInfo['sets'];
+        $instance->tags             = $userInfo['tags'];
+        $instance->canDownload      = $userInfo['canDownload'];
+        $instance->biller           = $userInfo['biller'];
+        $instance->billerMemberid   = $userInfo['billerMemberid'];
 
         return $instance;
     }
@@ -94,6 +100,7 @@ class UserRegistered implements ShouldBePublished
         $output = [
             $this->userId,
             $this->username,
+            $this->membership_level,
             implode(', ', $this->allChannels),
             implode(', ', $this->collections),
             implode(', ', $this->sets),

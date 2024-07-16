@@ -18,6 +18,11 @@ class UpdateNatsMemberships implements ShouldBePublished
     public readonly string $username;
 
     /**
+     * @var string
+     */
+    public readonly string $membership_level;
+
+    /**
      * @var array
      */
     public readonly array $allChannels;
@@ -46,10 +51,11 @@ class UpdateNatsMemberships implements ShouldBePublished
     {
         $instance = new self;
 
-        $instance->userId      = $userInfo['userId'];
-        $instance->username    = $userInfo['username'];
-        $instance->allChannels = $userInfo['allChannels'];
-        $instance->canDownload = $userInfo['canDownload'];
+        $instance->userId           = $userInfo['userId'];
+        $instance->username         = $userInfo['username'];
+        $instance->membership_level = $userInfo['membership_level'];
+        $instance->allChannels      = $userInfo['allChannels'];
+        $instance->canDownload      = $userInfo['canDownload'];
 
         return $instance;
     }
@@ -64,6 +70,7 @@ class UpdateNatsMemberships implements ShouldBePublished
         $output = [
             $this->userId,
             $this->username,
+            $this->membership_level,
             implode(', ', $this->allChannels),
             $this->canDownload,
         ];
