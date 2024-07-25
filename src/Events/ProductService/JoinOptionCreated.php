@@ -127,7 +127,7 @@ class JoinOptionCreated implements ShouldBePublished
         $instance->type                = $joinOption['type'];
         // $instance->products            = $products;
         $instance->buttonText         = $joinOption['button_text'];
-        $instance->promotionalText      = $joinOption['promotion_text'];
+        $instance->promotionalText      = $joinOption['promotional_text'];
 
         return $instance;
     }
