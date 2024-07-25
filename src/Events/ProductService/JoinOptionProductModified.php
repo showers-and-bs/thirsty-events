@@ -20,7 +20,12 @@ class JoinOptionProductModified implements ShouldBePublished
     /**
      * @var string|null
      */
-    public readonly string|null $displayToTheUsers;
+    public readonly string|null $buttonText;
+
+    /**
+     * @var string|null
+     */
+    public readonly string|null $promotionalText;
 
     /**
      * @var string
@@ -32,18 +37,21 @@ class JoinOptionProductModified implements ShouldBePublished
      *
      * @param string $productId
      * @param string $joinOptionId
-     * @param string|null $displayToTheUsers
+     * @param string|null $buttonText
+     * @param string|null $promotionalText
      * @param string $pricingLevel
      */
     public function __construct(
         string  $productId,
         string  $joinOptionId,
-        string|null  $displayToTheUsers,
+        string|null $buttonText,
+        string|null  $promotionalText,
         string $pricingLevel,
     ) {
         $this->productId = $productId;
         $this->joinOptionId = $joinOptionId;
-        $this->displayToTheUsers = $displayToTheUsers;
+        $this->buttonText = $buttonText;
+        $this->promotionalText = $promotionalText;
         $this->pricingLevel = $pricingLevel;
     }
 
