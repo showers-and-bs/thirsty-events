@@ -22,7 +22,6 @@ class JoinOptionProductRemoved implements ShouldBePublished
      *
      * @param string $productId
      * @param string $joinOptionId
-     * @param string|null $displayToTheUsers
      */
     public function __construct(
         string  $productId,

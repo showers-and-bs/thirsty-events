@@ -78,6 +78,16 @@ class JoinOptionModified implements ShouldBePublished
     public readonly string $type;
 
     /**
+     *@var string|null
+     */
+    public readonly string|null $buttonText;
+
+    /**
+     * @var string|null
+     */
+    public readonly string|null $promotionalText;
+
+    /**
      * @var array Associated products id
      */
     // public readonly array $products;
@@ -116,6 +126,8 @@ class JoinOptionModified implements ShouldBePublished
         $instance->recurringPeriodUnit = $joinOption['recurring_period_unit'];
         $instance->type                = $joinOption['type'];
         // $instance->products            = $products;
+        $instance->buttonText          = $joinOption['button_text'];
+        $instance->promotionalText     = $joinOption['promotional_text'];
 
         return $instance;
     }
@@ -143,6 +155,8 @@ class JoinOptionModified implements ShouldBePublished
             'recurringPeriodUnit: ' . $this->recurringPeriodUnit,
             'type: ' . $this->type,
             // 'products: ' . implode(', ', array_keys($this->products)),
+            'buttonText: ' . $this->buttonText,
+            'promotionalText: ' . $this->promotionalText,
         ];
 
         return implode("\n", $output);
