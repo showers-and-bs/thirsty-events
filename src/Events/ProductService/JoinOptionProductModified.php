@@ -28,6 +28,16 @@ class JoinOptionProductModified implements ShouldBePublished
     public readonly string|null $promotionalText;
 
     /**
+     * @var string|null
+     */
+    public readonly string|null $optionInitialTerms;
+
+    /**
+     * @var string|null
+     */
+    public readonly string|null $optionRecurringTerms;
+
+    /**
      * @var string
      */
     public readonly string $pricingLevel;
@@ -47,12 +57,16 @@ class JoinOptionProductModified implements ShouldBePublished
         string|null $buttonText,
         string|null  $promotionalText,
         string $pricingLevel,
+        string|null $optionInitialTerms,
+        string|null $optionRecurringTerms
     ) {
         $this->productId = $productId;
         $this->joinOptionId = $joinOptionId;
         $this->buttonText = $buttonText;
         $this->promotionalText = $promotionalText;
         $this->pricingLevel = $pricingLevel;
+        $this->optionInitialTerms = $optionInitialTerms;
+        $this->optionRecurringTerms = $optionRecurringTerms;
     }
 
     /**

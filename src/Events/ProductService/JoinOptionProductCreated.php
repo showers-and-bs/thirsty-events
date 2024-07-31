@@ -28,6 +28,16 @@ class JoinOptionProductCreated implements ShouldBePublished
     public readonly string|null $promotionalText;
 
     /**
+     * @var string|null
+     */
+    public readonly string|null $optionInitialTerms;
+
+    /**
+     * @var string|null
+     */
+    public readonly string|null $optionRecurringTerms;
+
+    /**
      * @var string
      */
     public readonly string $pricingLevel;
@@ -40,19 +50,25 @@ class JoinOptionProductCreated implements ShouldBePublished
      * @param string|null $buttonText
      * @param string|null $promotionalText
      * @param string $pricingLevel
+     * @param string|null $optionInitialTerms
+     * @param string|null $optionRecurringTerms
      */
     public function __construct(
         string  $productId,
         string  $joinOptionId,
         string|null $buttonText,
         string|null  $promotionalText,
-        string $pricingLevel
+        string $pricingLevel,
+        string|null $optionInitialTerms,
+        string|null $optionRecurringTerms
     ) {
         $this->productId = $productId;
         $this->joinOptionId = $joinOptionId;
         $this->buttonText = $buttonText;
         $this->promotionalText = $promotionalText;
         $this->pricingLevel = $pricingLevel;
+        $this->optionInitialTerms = $optionInitialTerms;
+        $this->optionRecurringTerms = $optionRecurringTerms;
     }
 
     /**
